@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+  # Define Root URL
+  root 'pages#index'
+  
+  # This defines the routes for the pages
+  get '/home' => 'pages#home'
+
+  get '/profile' => 'pages#profile'
+
+  get '/groups' => 'pages#groups'
+
+  get '/prayers' => 'pages#prayers'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

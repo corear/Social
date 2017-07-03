@@ -10,6 +10,43 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    background-color: rgba(212, 216, 212, 0.25);
+}
+
+.navbar {
+    background-color: white;
+}
+
+.form-control{
+    border-radius:20px;
+}
+
+.btn-primary{
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.noBotPadd{
+    padding-bottom:0px;
+}
+
+.profilePic{
+    border-radius:50%;
+    width:256px;
+    height:256px;
+    border:10px solid #fff;
+}
+
+.alert{
+    visibility:hidden;
+}
+
+.notice{
+    visibility:hidden;
+}
