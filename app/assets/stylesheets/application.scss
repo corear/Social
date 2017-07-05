@@ -25,15 +25,12 @@ body {
 
 .form-control{
     border-radius:20px;
+    min-width:250px;
 }
 
 .btn-primary{
     padding-left:20px;
     padding-right:20px;
-}
-
-.noBotPadd{
-    padding-bottom:0px;
 }
 
 .profilePic{
@@ -49,4 +46,13 @@ body {
 
 .notice{
     visibility:hidden;
+}
+
+.btn-primary{
+    background-color:#1ac9c9;
+    border:1px solid #1db8b8;
+}
+
+.btn-primary:hover{
+    background-color:#1db8b8;
 }
