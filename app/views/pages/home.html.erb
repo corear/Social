@@ -14,11 +14,10 @@
     
     
     <div class="col-xs-7">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            feed
-          </div>
-        </div>
+        <%= render "/components/post_form" %><br><br>
+         <% for @p in @posts %>
+        <%= render "/components/post" %>
+    <% end %>
     </div>
 </div>
 

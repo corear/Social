@@ -9,12 +9,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if notice %>
+  <div id = "notice-wrapper">
+  <p class="notice"><%= notice %></p>
+  </div>
+  <% elsif alert %>
+  <div id = "alert-wrapper">
+  <p class="alert"><%= alert %></p>
+  </div>
+  <% end %>
+  
+  
 <%= render '/layouts/nav' %>
 <div class="container">
-  <span class="notice"><%= notice %></span>
-       <span class="alert"><%= alert %></span>
+  
+  
+       
 <%= yield %>
 </div>
+
+<script>
+  $(document).ready(function() {
+    setTimeout(function(){
+      $('#notice-wrapper').fadeOut("slow", function(){
+      })
+    }, 4000)
+    
+    setTimeout(function(){
+      $('#alert-wrapper').fadeOut("slow", function(){
+      })
+    }, 4000)
+  })
+</script>
 
 </body>
 </html>

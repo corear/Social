@@ -19,12 +19,12 @@
       </form>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-     
+    
       <ul class="nav navbar-nav navbar-right">
           <li class='dropdown'>
               <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px;padding:0px;padding-top:10px;margin-right:10px;"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-bell"></span>&nbsp; <span id = 'notifBadge' class="badge">0</span></button></a>
           <ul class="dropdown-menu">
-            <li><a href="/profile">Profile</a></li>
+            <li><a href="/user/<%= current_user.username %>">Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to('Settings', edit_user_registration_path) %></li>
             <li role="separator" class="divider"></li>
@@ -38,7 +38,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img alt="Brand" src="/pyramidofmoney.jpg" style="width:20px;height:20px;border-radius:50%"> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/profile">Profile</a></li>
+        <li><a href="/prayers">All Prayers</a></li>
+            <li><a href="/user/<%= current_user.username %>">Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to('Settings', edit_user_registration_path) %></li>
             <li role="separator" class="divider"></li>

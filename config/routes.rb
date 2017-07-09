@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   # Define Root URL
   root 'pages#index'
+  resources :posts
   
   # This defines the routes for the pages
   get '/home' => 'pages#home'
 
-  get '/profile' => 'pages#profile'
+  get '/user/:id' => 'pages#profile'
 
   get '/groups' => 'pages#groups'
 

@@ -1,0 +1,13 @@
+<%= form_for(@newPost) do |f|  %>
+  <div class="panel panel-default post-panel" style="margin-bottom:0px;">
+  <div class="panel-body row" style="padding-top:0px;padding-bottom:0px;">
+    <div class="col-xs-10" style="padding:0">
+    <%= f.text_area :content, autofocus: true, :class => "noOutline", :style => "width:98%;height:100%;border:none;padding:10px;padding-bottom:0px;resize:none;", :placeholder => "Write a prayer, praise, or update..." %>
+    </div>
+     <div class="col-xs-2" style="padding:0;">
+  <%= f.submit "POST", :class => "post-btn" %>
+  </div>
+  </div>
+  </div>
+
+<% end %>

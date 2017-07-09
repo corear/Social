@@ -19,6 +19,11 @@ body {
     background-color: rgba(212, 216, 212, 0.25);
 }
 
+a:hover{
+    text-decoration:none;
+    color:#1db8b8;
+}
+
 .navbar {
     background-color: white;
 }
@@ -33,6 +38,22 @@ body {
     padding-right:20px;
 }
 
+.btn:focus{
+    outline:none;
+}
+
+.btn:active{
+    outline:none;
+}
+
+.noOutline:focus{
+    outline:none;
+}
+
+.noOutline:active{
+    outline:none;
+}
+
 .profilePic{
     border-radius:50%;
     width:256px;
@@ -40,19 +61,236 @@ body {
     border:10px solid #fff;
 }
 
-.alert{
-    visibility:hidden;
-}
-
-.notice{
-    visibility:hidden;
-}
-
 .btn-primary{
     background-color:#1ac9c9;
     border:1px solid #1db8b8;
 }
 
+.btn-secondary{
+    background-color:#fff;
+    color:#1ac9c9;
+    border:1px solid #f0f0f0;
+}
+
 .btn-primary:hover{
     background-color:#1db8b8;
+}
+
+.btn-secondary:hover{
+    background-color:#f0f0f0;
+    color:#1ac9c9;
+}
+
+.notice{
+    
+    padding: 2.5rem;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+
+}
+
+.alert{
+    padding: 2.5rem;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+}
+
+#notice-wrapper{
+    
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: rgba(135,216,211,0.85)
+}
+
+#alert-wrapper{
+    
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: rgba(199,91,91,0.85)
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.input_field{
+    
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 4px;
+    border: 1px solid #1ac9c9;
+    margin: 10px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    background:#fff;
+    color:#000;
+
+}
+
+.input_field:focus{
+    outline:none;
+    border-radius:0px;
+    border:none;
+    border-bottom:3px solid rgba(135,216,211,1);
+    color:#1ac9c9;
+}
+
+.post-title{
+    text-align:left;
+    margin-bottom:20px;
+}
+
+.post-content{
+    text-align:left;
+    padding-top:10px;
+}
+
+.post-links{
+    
+}
+
+.post-date{
+    color:#ccc;
+    font-size:12px;
+    text-align:right;
+    padding-right:15px;
+}
+
+.wrapword{
+white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+white-space: pre-wrap;       /* css-3 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+word-break: break-all;
+white-space: normal;
+
+}
+
+.post-type{
+    color:#fff;
+    font-size:16px;
+    padding:10px;
+    width:100%;
+    font-weight:300;
+    letter-spacing:5px;
+    text-align:center;
+    margin:0px;
+}
+
+.post-panel{
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.pray-button{
+    background:transparent;
+    padding:7px;
+    padding-right:0px;
+    padding-left:0px;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:2px;
+    border-radius:5px;
+    border: 1px solid rgba(199,91,91,0.85);
+    color: rgba(199,91,91,0.85);
+    overflow:hidden;
+    margin-right:20px;
+}
+
+.pray-button:hover{
+    color: rgba(199,91,91,1);
+    border: 1px solid rgba(199,91,91,1);
+}
+
+.pray-button:focus{
+    color: rgba(199,91,91,1);
+}
+
+.praise-button{
+    background:transparent;
+    padding:7px;
+    padding-left:0px;
+    padding-right:0px;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:2px;
+    border-radius:5px;
+    border: 1px solid #1ac9c9;
+    color: #1ac9c9;
+    overflow:hidden;
+    margin-right:20px;
+}
+
+.praise-button:hover{
+    color:#1db8b8;
+    border: 1px solid #1db8b8;
+}
+
+.praise-button:focus{
+    color:#1db8b8;
+}
+
+.post-btn{
+    height: 100%;
+    border: none;
+    background-color: #1ac9c9;
+    color: #fff;
+    padding: 20px;
+    letter-spacing:1px;
+    font-weight:400;
+    width: 100%;
+    margin:0;
+}
+
+.action-count{
+    background-color: rgba(199,91,91,1);
+    color:#fff;
+    padding:7px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.action-count-praise{
+    background-color: #1ac9c9;
+    color:#fff;
+    padding:7px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.action-count-update{
+    background-color: #e09141;
+    color:#fff;
+    padding:7px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.update-button{
+        background:transparent;
+    padding:7px;
+    padding-left:0px;
+    padding-right:0px;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:2px;
+    border-radius:5px;
+    border: 1px solid #e09141;
+    color: #e09141;
+    overflow:hidden;
+    margin-right:20px;
 }
