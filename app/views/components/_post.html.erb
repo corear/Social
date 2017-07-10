@@ -5,15 +5,13 @@
                       <p class='post-type' style="background-color: rgba(199,91,91,0.85)">PRAYER</p>
                       <% elsif @p.content.match(/praise/i)  %>
                       <p class='post-type' style="background-color:#1ac9c9;">PRAISE</p>
-                      <% else %>
-                      <p class='post-type' style="background-color:#e09141;">UPDATE</p>
                       <% end %>
                     
                 </div>
             </div>
           <div class="panel-body row">
               <div class='col-sm-2'>
-                  <a href="/user/<%=current_user.username%>"><img src="/pyramidofmoney.jpg" height="50px" width="50px" style="border-radius:50%;border:2px solid #1ac9c9"></img></a>
+                  <center><a href="/user/<%=current_user.username%>"><img src="/pyramidofmoney.jpg" height="50px" width="50px" style="border-radius:50%;border:2px solid #1ac9c9"></img></a></center>
               </div>
               <div class="col-sm-7">
                   <a style="color:#1ac9c9" href="/user/<%= User.find(@p.user_id).username %>" class='post-title'><strong>Username</strong>  &nbsp;<span style="font-size:10px">@<%= User.find(@p.user_id).username %></span></a>
@@ -29,15 +27,15 @@
                   <div class="post-links">
                       <% if @p.content.match(/pray/i)  %>
                       <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;">PRAY</span><span class="action-count">3543</span></a></span>
-                      <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span> COMMENT</span><span class="action-count">3543</span></a></span>
-                      <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span> LIKE</span><span class="action-count">3543</span></a></span>
+                      <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count">3543</span></a></span>
+                      <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span></span><span class="action-count">3543</span></a></span>
                       <% elsif @p.content.match(/praise/i)  %>
                       <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;">PRAISE</span><span class="action-count-praise">3543</span></a></span>
-                      <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span> COMMENT</span><span class="action-count-praise">3543</span></a></span>
-                      <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span> LIKE</span><span class="action-count-praise">3543</span></a></span>
+                      <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count-praise">3543</span></a></span>
+                      <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span></span><span class="action-count-praise">3543</span></a></span>
                       <% else %>
-                      <span><a class="update-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span> COMMENT</span><span class="action-count-update">3543</span></a></span>
-                      <span><a class="update-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span> LIKE</span><span class="action-count-update">3543</span></a></span>
+                      <span><a class="update-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count-update">3543</span></a></span>
+                      <span><a class="update-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span></span><span class="action-count-update">3543</span></a></span>
                       <% end %>
                 </div>
               </div>

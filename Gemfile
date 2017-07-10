@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'paperclip', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Devise for user authentication
 gem 'devise'

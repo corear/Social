@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  
+  resources :relationships, only: [:create, :destroy]
   devise_for :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
   # Define Root URL
   root 'pages#index'
   resources :posts

@@ -69,7 +69,7 @@ a:hover{
 .btn-secondary{
     background-color:#fff;
     color:#1ac9c9;
-    border:1px solid #f0f0f0;
+    border:1px solid #1ac9c9;
 }
 
 .btn-primary:hover{
@@ -163,7 +163,7 @@ input:-webkit-autofill {
 }
 
 .post-date{
-    color:#ccc;
+    opacity:0.7;
     font-size:12px;
     text-align:right;
     padding-right:15px;
@@ -273,7 +273,7 @@ white-space: normal;
     padding-right:10px;
 }
 .action-count-update{
-    background-color: #e09141;
+    background-color: #ccc;
     color:#fff;
     padding:7px;
     padding-left:10px;
@@ -289,8 +289,16 @@ white-space: normal;
     font-size:13px;
     letter-spacing:2px;
     border-radius:5px;
-    border: 1px solid #e09141;
-    color: #e09141;
+    border: 1px solid #ccc;
+    color: #ccc;
     overflow:hidden;
     margin-right:20px;
+}
+
+.profile-btn{
+    width:100%;
+    padding:10px;
+    font-size:20px;
+    font-weight:320;
+    letter-spacing:2px;
 }
