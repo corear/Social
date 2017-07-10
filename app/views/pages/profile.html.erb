@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="jumbotron">
-            <center><img class="profilePic" src="/pyramidofmoney.jpg"></center>
+            <center><img class="profilePic" src="<%= User.find_by_username(@username).avatar.url(:medium) %>"></center>
           <center><h1>@<%= @username %></h1></center>
          </div>
         </div>

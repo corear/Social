@@ -11,7 +11,7 @@
             </div>
           <div class="panel-body row">
               <div class='col-sm-2'>
-                  <center><a href="/user/<%=current_user.username%>"><img src="/pyramidofmoney.jpg" height="50px" width="50px" style="border-radius:50%;border:2px solid #1ac9c9"></img></a></center>
+                  <center><a href="/user/<%=current_user.username%>"><img src="<%= User.find(@p.user_id).avatar.url(:thumb) %>" height="50px" width="50px" style="border-radius:50%;border:2px solid #1ac9c9"></img></a></center>
               </div>
               <div class="col-sm-7">
                   <a style="color:#1ac9c9" href="/user/<%= User.find(@p.user_id).username %>" class='post-title'><strong>Username</strong>  &nbsp;<span style="font-size:10px">@<%= User.find(@p.user_id).username %></span></a>

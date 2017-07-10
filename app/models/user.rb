@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
     
-    
+    has_attached_file :avatar, styles: { medium: "256x256>", thumb: "50x50#", small: "100x100>" }, default_url: "/blank_pic.jpg"
+    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  
     def follow(other)
       active_relationships.create(followed_id: other.id)
     end
