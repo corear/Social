@@ -2,7 +2,11 @@
     <div class="col-xs-12">
         <div class="jumbotron">
             <center><img class="profilePic" src="<%= User.find_by_username(@username).avatar.url(:medium) %>"></center>
-          <center><h1>@<%= @username %></h1></center>
+          <center><h1>@<%= @username %></h1>
+          <% if @username == current_user.username %>
+              <a href="/users/edit" class="btn btn-primary" style="font-weight:300;letter-spacing:1px;margin-top:10px;padding:10px;padding-left:25px;padding-right:25px;font-size:150%;">EDIT PROFILE</a>
+          <% end %>
+          </center>
          </div>
         </div>
 </div>
@@ -13,15 +17,16 @@
         <div class="panel panel-default">
           <div class="panel-body">
               <center>
-              <h1>Aespect</h1>
+              <h1><%= User.find_by_username(@username).display_name %></h1>
               <p>@<%= @username %></p>
               </center>
+              <% if current_user.id != user.id %>
                <%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
-            
+            <% end %>
               <center>
-               <h1 style="color: #1ac9c9"><%= User.find_by_username(@username).posts.count %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;POSTS</span>
-               <h1 style="color: #1ac9c9"><%= User.find_by_username(@username).followers.count %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;FOLLOWERS</span>
-               <h1 style="color: #1ac9c9"><%= User.find_by_username(@username).following.count %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;FOLLOWING</span>
+               <h1 style="color: #1ac9c9"><%= number_with_delimiter(User.find_by_username(@username).posts.count, :delimiter => ',') %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;POSTS</span>
+               <h1 style="color: #1ac9c9"><%= number_with_delimiter(User.find_by_username(@username).followers.count, :delimiter => ',') %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;FOLLOWERS</span>
+               <h1 style="color: #1ac9c9"><%= number_with_delimiter(User.find_by_username(@username).following.count, :delimiter => ',') %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;FOLLOWING</span>
           </center>
           </div>
         </div>

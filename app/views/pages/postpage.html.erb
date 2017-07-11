@@ -1,0 +1,15 @@
+<p><%= Post.find(@post).content %></p>
+
+<% @comments.each do |comment| %>
+<p><%= comment.user.username %></p>
+    <p><%= comment.content %></p>
+    <% if current_user == comment.user %>
+    <%= link_to "Delete comment", [comment.post, comment], method: :delete %>
+    <% end %>
+<% end %>
+
+<%= render '/comments/form' %>
+
+    <% if Post.find(@post).user_id == current_user.id %>
+        <%= link_to "Destroy", post_path(@post), :confirm => "Are you sure?", :method => :delete %>
+    <% end %>

@@ -9,16 +9,20 @@ Rails.application.routes.draw do
   
   # Define Root URL
   root 'pages#index'
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   
   # This defines the routes for the pages
   get '/home' => 'pages#home'
 
-  get '/user/:id' => 'pages#profile'
+  get '/@:id' => 'pages#profile'
 
   get '/groups' => 'pages#groups'
 
   get '/prayers' => 'pages#prayers'
+  
+  get '/post/:id' => 'pages#postpage'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

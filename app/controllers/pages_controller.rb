@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def home
      @posts = Post.all
      @newPost = Post.new
+     @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
   end
 
   # back-end code for pages/profile
@@ -30,5 +31,15 @@ class PagesController < ApplicationController
   # back-end code for pages/prayers
   def prayers
      @posts = Post.all
+  end
+  
+  def postpage
+    if (Post.find(params[:id]))
+    @post = params[:id]
+    @comments = Comment.where(post_id: @post).order("created_at DESC")
+    else
+    redirect_to root_path, :alert=> "That post does not exist!"
+    end
+  
   end
 end

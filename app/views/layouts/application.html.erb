@@ -11,11 +11,11 @@
 <body>
   <% if notice %>
   <div id = "notice-wrapper">
-  <p class="notice"><%= notice %></p>
+  <p class="notice"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp; <%= notice %></p>
   </div>
   <% elsif alert %>
   <div id = "alert-wrapper">
-  <p class="alert"><%= alert %></p>
+  <p class="alert"><span class="glyphicon glyphicon-alert"></span>&nbsp; <%= alert %></p>
   </div>
   <% end %>
   

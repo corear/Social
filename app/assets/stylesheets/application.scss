@@ -156,6 +156,7 @@ input:-webkit-autofill {
 .post-content{
     text-align:left;
     padding-top:10px;
+    color:#000;
 }
 
 .post-links{
@@ -301,4 +302,14 @@ white-space: normal;
     font-size:20px;
     font-weight:320;
     letter-spacing:2px;
+}
+
+.profile-btn-sm{
+    width:100%;
+    padding:8px;
+    font-size:13px;
+    font-weight:320;
+    letter-spacing:2px;
+    margin-top:10px;
+    margin-bottom:20px;
 }

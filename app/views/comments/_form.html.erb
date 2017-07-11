@@ -1,0 +1,4 @@
+<%= form_for([Post.find(@post), Post.find(@post).comments.build]) do |f| %>
+<%= f.text_area :content %>
+<%= f.submit %>
+<% end %>
