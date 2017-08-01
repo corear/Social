@@ -18,13 +18,9 @@
                trends
           </div>
         </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-              <center><h1>Who to follow:</h1></center>
+        
               <%= render "/components/top_users" %>
                
-          </div>
-        </div>
     </div>
     
     
@@ -32,7 +28,7 @@
         <%= render "/components/post_form" %><br><br>
          <% for @p in @posts %>
         <%= render "/components/post" %>
-    <% end %>
+        <% end %>
     </div>
 </div>
 

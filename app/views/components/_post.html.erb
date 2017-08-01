@@ -16,7 +16,7 @@
               </div>
               <div class="col-sm-7">
                   <a style="color:#1ac9c9" href="/@<%= User.find(@p.user_id).username %>" class='post-title'><strong><%= User.find(@p.user_id).display_name %></strong>  &nbsp;<span style="font-size:10px">@<%= User.find(@p.user_id).username %></span></a>
-                  <a href="/post/<%= @p.id %>"><p class='post-content wrapword'><%= @p.content %></p></a>
+                  <a href="/post/<%= @p.id %>"><p class='post-content'><%= @p.content %></p></a>
               </div>
                <div class="col-sm-3">
                   <p class="post-date"><%= distance_of_time_in_words(@p.created_at,Time.now) %> ago</p>
@@ -25,21 +25,7 @@
               <div class="row" style="padding:10px;padding-top:0;margin-bottom:20px;top:0">
               <div class="col-sm-2"></div>
               <div class="col-sm-10">
-                  <div class="post-links">
-                      <% if @p.content.match(/pray/i)  %>
-                      <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;">PRAY</span><span class="action-count">3543</span></a></span>
-                      <span><a class="pray-button" href="/post/<%= @p.id %>"><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count"><%= Comment.where(post_id: @p.id).count %></span></a></span>
-                      <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span></span><span class="action-count">3543</span></a></span>
-                      <% elsif @p.content.match(/praise/i)  %>
-                      <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;">PRAISE</span><span class="action-count-praise">3543</span></a></span>
-                      <span><a class="praise-button" href="/post/<%= @p.id %>"><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count-praise"><%= Comment.where(post_id: @p.id).count %></span></a></span>
-                      <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-heart-empty"></span></span><span class="action-count-praise">3543</span></a></span>
-                      <% else %>
-                      <span><a class="update-button" href="/post/<%= @p.id %>"><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count-update"><%= Comment.where(post_id: @p.id).count %></span></a></span>
-                     
-                      
-                      <% end %>
-                </div>
+                 <%= render '/components/post_links' %>
               </div>
              
             

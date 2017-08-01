@@ -1,4 +1,13 @@
-<%= form_for([Post.find(@post), Post.find(@post).comments.build]) do |f| %>
-<%= f.text_area :content %>
-<%= f.submit %>
+<%= form_for([Post.find(@post), Post.find(@post).comments.build]) do |f|  %>
+  <div class="panel panel-default post-panel">
+  <div class="panel-body row" style="padding-top:0px;padding-bottom:0px;">
+    <div class="col-xs-10" style="padding:0">
+    <%= f.text_area :content, autofocus: true, :class => "noOutline", :style => "width:98%;height:100%;border:none;padding:10px;padding-bottom:0px;resize:none;", :placeholder => "Drop a comment..." %>
+    </div>
+     <div class="col-xs-2" style="padding:0;">
+  <%= f.submit "COMMENT", :class => "post-btn" %>
+  </div>
+  </div>
+  </div>
+
 <% end %>

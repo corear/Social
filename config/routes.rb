@@ -20,9 +20,11 @@ Rails.application.routes.draw do
 
   get '/groups' => 'pages#groups'
 
-  get '/prayers' => 'pages#prayers'
+  get '/all_posts' => 'pages#posts'
   
   get '/post/:id' => 'pages#postpage'
+  
+  get '/search/:id1/:id' => 'pages#search_handler'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

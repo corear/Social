@@ -2,7 +2,6 @@ class PostsController < ApplicationController
     
    
     
-    
     def new
         @post = Post.new
     end
@@ -18,7 +17,7 @@ class PostsController < ApplicationController
             if (@post.save)
                 f.html { redirect_to "/@#{current_user.username}", notice: "Post created!" }
             else
-                f.html { redirect_to "/@#{current_user.username}", alert: "Error: Post not saved." }
+                f.html { redirect_to "/@#{current_user.username}", alert: "Error: Post not saved. Most likely, you had more than 500 characters." }
             end
         end
     end
@@ -32,6 +31,8 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to '/home', :alert => "Your post has been deleted."
     end
+    
+   
   
     private
     

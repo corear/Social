@@ -1,4 +1,8 @@
-<% for @u in @users do %>
+<div class="panel panel-default">
+          <div class="panel-body">
+              <center><h1>Who to follow:</h1></center>
+              
+              <% for @u in @users do %>
                <div>
                    <div class="col-sm-3">
                    <center><a href="/@<%= @u.username %>"><img src="<%= @u.avatar.url(:small) %>" style="width:50px;height:50px;border-radius:50%;margin-top:15px;margin-left:15px;"/></a></center>
@@ -30,3 +34,5 @@
                   </div>
                   <div class="divider" style="width:100%;height:2px;"></div>
                <% end %>
+               </div>
+               </div>
