@@ -3,36 +3,38 @@
               <center><h1>Who to follow:</h1></center>
               
               <% for @u in @users do %>
-               <div>
+               <div class="row">
+                   <div class="col-sm-3">
+                       
+                   </div>
+                   <div class ="col-sm-6">
+                       <div>
                    <div class="col-sm-3">
                    <center><a href="/@<%= @u.username %>"><img src="<%= @u.avatar.url(:small) %>" style="width:50px;height:50px;border-radius:50%;margin-top:15px;margin-left:15px;"/></a></center>
                    </div>
                    <div class="col-sm-9">
-                       <center><a href="/@<%= @u.username %>"><h1 style="font-size:120%;color:#000"><%= @u.display_name %></h1></a></center>
-                        <div class="col-sm-7">
-                       <a href="/@<%= @u.username %>" style="font-size:90%;color:#1ac9c9">@<%= @u.username %></a>
-                       </div
-                        <div class="col-sm-5">
-                       <a href="/@<%= @u.username %>" style="font-size:90%;color:#000;opacity:0.7"><%= pluralize(@u.followers.count, "follower") %></a>
-                       </div
-                   </div>
-                   <div class="col-sm-12">
-                       <% if current_user.id != @u.id %>  
-                                    <% if !current_user.following?(@u) %>
-                                        <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+                       <center><a href="/@<%= @u.username %>"><h1 style="font-size:120%;color:#000"><%= @u.display_name %>&nbsp;&nbsp;<span style="font-size:10px" class="tag">@<%= @u.username %></span></h1></a>
+                      <% if !current_user.following?(@u) %>
+                      <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
                                             <div><%= hidden_field_tag :followed_id, @u.id %></div>
-                                            <%= f.submit "FOLLOW", class: "btn btn-primary profile-btn-sm" %>
+                                            <%= f.submit "FOLLOW", class: "btn btn-primary" %>
                                         <% end %>
                                     <% else %>
                                         <%= form_for(current_user.active_relationships.find_by(followed_id: @u.id),
                                             html: { method: :delete }) do |f| %>
-                                            <%= f.submit "UNFOLLOW", class: "btn btn-secondary profile-btn-sm" %>
+                                            <%= f.submit "UNFOLLOW", class: "btn btn-secondary" %>
                                         <% end %>
                                     <% end %>
-                       <% end %>
+                       </center>
                    </div>
                   </div>
-                  <div class="divider" style="width:100%;height:2px;"></div>
+                   </div>
+                   <div class="col-sm-3"></div>
+                   
+               </div>
+                  <center>
+                      <div class="divider" style="width:50%;height:1px;margin-bottom:10px;margin-top:10px;"></div>
+                  </center>
                <% end %>
                </div>
                </div>
