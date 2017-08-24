@@ -49,6 +49,7 @@
     
     
 </style>
+<div class="container">
 <div class="container-index row" style = "margin-top:200px;">
 <div class="col-sm-12">
     <center>
@@ -60,11 +61,17 @@
 <%= link_to("SIGN UP", new_user_registration_path, :class => "btn btn-secondary navbar-btn", :style => "width:100%; padding: 20px;font-size:20px;letter-spacing:1px;font-weight:700px;") %>
 <%= link_to("LOG IN", new_user_session_path, :class => "btn btn-secondary navbar-btn", :style => 'width:100%; padding:20px;font-size:20px;letter-spacing:1px;font-weight:700px;') %>
 
+<center>
+    <div style="margin-top:200px;margin-bottom:20px;">
+    <a href="http://illumin4te.herokuapp.com/"><p class="text">An <span><img src="http://illumin4te.herokuapp.com/ILLUMIN4TE_512_White.png" style="height:100px;width:100px;"/></span> project.</p></a>
+</div>
+</center>
+
     <p class='footer-lines'>
     About Help Blog Status Terms Privacy Cookies Ads Info Brand Advertise Churches<br>© 2017 Unafire
 </p>
 </div>
-
+</div>
 </div>
 <% else %>
     <script>document.location="/home"</script>

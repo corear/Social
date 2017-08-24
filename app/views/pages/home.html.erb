@@ -1,37 +1,42 @@
-<div class="row">
-    <div class="col-xs-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-              <center>
-                  <a href="/@<%= current_user.username %>"><img src="<%= current_user.avatar.url(:small) %>" style="width:100px;height:100px;border-radius:50%;"/></a>
-                  <h1><%= current_user.display_name %></h1>
-                  <p style="color:#1ac9c9">@<%= current_user.username %></p>
-              
-               <h1 style="color: #1ac9c9"><%= number_with_delimiter(current_user.posts.count, :delimiter => ',') %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;POSTS</span>
-               <h1 style="color: #1ac9c9"><%= number_with_delimiter(current_user.followers.count, :delimiter => ',') %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;FOLLOWERS</span>
-               <h1 style="color: #1ac9c9"><%= number_with_delimiter(current_user.following.count, :delimiter => ',') %></h1><span style="opacity:0.7;font-weight:400;letter-spacing:1px;font-size:15px;color:#000;">&nbsp;FOLLOWING</span>
-          </center>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
+<div class="container">
+    <div class="row post-container" style="overflow:visible;margin-top:40px;">
+        <div class="col-sm-3">
                trends
-          </div>
+        </div>
+        <div class="col-sm-6" >
+            <center>
+                <a href="/@<%= current_user.username %>"><img src="<%= current_user.avatar.url(:medium) %>" style="max-width:100px;margin-top:-40px;background-color:white" class="raised rounded"/></a><br>
+                    <t1><%= current_user.display_name %></t1><br>
+                <a href="/@<%= current_user.username %>"> <t4 class="tag" style="position:relative;top:5px;left:7px;">@ <%= current_user.username %></t4></a>
+                <div style="margin:10px;margin-top:20px">
+                     <div style="display:inline-block;margin-left:25px;margin-right:25px;">
+                        <t1 style="color: #1ac9c9" class="raisedText"><%= number_with_delimiter(current_user.followers.count, :delimiter => ',') %></t1><br>
+                        <t4 class="raisedText">Followers</t4>
+                     </div>
+                     <div style="display:inline-block;margin-left:25px;margin-right:25px;">
+                        <t1 style="color: #1ac9c9" class="raisedText"><%= number_with_delimiter(current_user.posts.count, :delimiter => ',') %></t1><br>
+                        <t4 class="raisedText">Posts</t4>
+                     </div>
+                </div>
+          </center>
+        </div>
+        <div class="col-sm-3">
         </div>
         
-              <%= render "/components/top_users" %>
+              
                
     </div>
     
     
-    <div class="col-xs-8">
-        <%= render "/components/post_form" %><br><br>
+    <div class="col-sm-12">
+               <%= render "/components/top_users" %>
+        
          <% for @p in @posts %>
         <%= render "/components/post" %>
         <% end %>
     </div>
+    
 </div>
-
 <script>
-    document.title="Unafire | Home"
+    document.title="Home | Unafire"
 </script>

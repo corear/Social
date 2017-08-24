@@ -1,5 +1,5 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * This is a manifest file that'll bcompiled into application.css, which will include all the files
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
@@ -14,9 +14,37 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body {
     background-color: rgba(212, 216, 212, 0.25);
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif
+}
+
+.turbolinks-progress-bar{
+    background-color:#1ac9c9;
+}
+
+t1{
+    font-weight:700;
+    font-size:38px;
+}
+
+t2{
+    font-weight:500;
+    font-size:2em;
+}
+
+t3{
+    font-weight:300;
+    font-family:"Helvetica Neue";
+    font-size: 1.55em;
+}
+
+t4{
+    font-weight:300;
+    font-size: 1.25em;
+    font-family:"Helvetica Neue";
 }
 
 a:hover{
@@ -38,6 +66,10 @@ a:hover{
     padding-right:20px;
 }
 
+.btn-primary:active{
+    background-color:#1ac9c9;
+}
+
 .btn:focus{
     outline:none;
 }
@@ -52,13 +84,6 @@ a:hover{
 
 .noOutline:active{
     outline:none;
-}
-
-.profilePic{
-    border-radius:50%;
-    width:256px;
-    height:256px;
-    border:10px solid #fff;
 }
 
 .btn-primary{
@@ -90,7 +115,7 @@ a:hover{
     font-weight: 700;
     color: white;
     letter-spacing: 1px;
-
+    z-index:1000;
 }
 
 .alert{
@@ -101,6 +126,7 @@ a:hover{
     font-weight: 700;
     color: white;
     letter-spacing: 1px;
+    z-index:1000;
 }
 
 #notice-wrapper{
@@ -157,6 +183,7 @@ input:-webkit-autofill {
     text-align:left;
     padding-top:10px;
     color:#000;
+    line-height:25px;
 }
 
 .post-links{
@@ -297,19 +324,67 @@ white-space: normal;
 }
 
 .profile-btn{
-    width:100%;
     padding:10px;
+    padding-left:30px;
+    padding-right:30px;
+    margin-top:-85px;
     font-size:20px;
     font-weight:320;
     letter-spacing:2px;
+    border-radius:30px;
 }
 
 .profile-btn-sm{
-    width:100%;
     padding:8px;
-    font-size:13px;
-    font-weight:320;
-    letter-spacing:2px;
-    margin-top:10px;
-    margin-bottom:20px;
+    font-size:20px;
+    font-weight:500;
+    width: 30px;
+    height: 30px;
+    line-height: 0px;
+    margin-top: 26px;
+    margin-left: -13px;
+}
+
+.top-img{
+    background:linear-gradient(         rgba(111, 227, 245, 0.7),         rgba(30, 88, 85, 0.7)         ), url(/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size:2000px auto;
+    width:100%;
+    margin-top:-80px;
+}
+
+.raised{
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3)
+}
+
+.rounded{
+  border-radius:50%;
+}
+
+.jumbotron{
+    font-size:inherit;
+}
+
+.raisedText{
+  text-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3)
+}
+
+.post-container{
+    border-radius:20px;
+    padding:0px;
+    overflow:hidden;
+    margin-bottom:30px;
+    background-color:white;
+}
+
+.tag{
+    background-color: #1ac9c9;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 2px;
+    margin-right:10px;
 }

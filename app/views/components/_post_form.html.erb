@@ -1,13 +1,25 @@
 <%= form_for(@newPost) do |f|  %>
-  <div class="panel panel-default post-panel" style="margin-bottom:0px;">
-  <div class="panel-body row" style="padding-top:0px;padding-bottom:0px;">
+  <div style="margin-bottom:0px;height:100%;">
+  <div class="row post-container" style="padding-top:0px;padding-bottom:0px;height:100px;margin:0px;">
     <div class="col-xs-10" style="padding:0">
-    <%= f.text_area :content, autofocus: true, :class => "noOutline", :style => "width:98%;height:100%;border:none;padding:10px;padding-bottom:0px;resize:none;", :placeholder => "Write a prayer, praise, or update..." %>
+    <%= f.text_area :content, autofocus: true, :class => "noOutline", :style => "width:98%;border:none;padding:20px;resize:none;", :placeholder => "What's on your mind?" %>
+    
+    <div>
+      
     </div>
-     <div class="col-xs-2" style="padding:0;">
-  <%= f.submit "POST", :class => "post-btn" %>
+    </div>
+     <div class="col-xs-2" style="padding:0;height:100%;">
+  <%= f.submit "POST", :class => "post-btn", :style => "height:100%" %>
   </div>
   </div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <%= f.select(:post_type, ['Update', 'Praise', 'Prayer'], {}, { :class => "form-control", :style => "margin-top:20px;position: relative;bottom: 8px;width: 100%;border: none; padding-top: 10px;" }) %>
+    
+    </div>
+  
+  </div
   </div>
 
 <% end %>

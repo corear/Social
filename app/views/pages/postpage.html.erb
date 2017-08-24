@@ -1,4 +1,5 @@
-<div class="panel panel-default post-panel">
+<div class="container">
+    <div class="post-container">
     <div class="row">
                 <div class='col-sm-12'>
                     <% if Post.find(@post).content.match(/pray/i) %>
@@ -11,14 +12,14 @@
             </div>
     <div class="panel-body row">
         <div class="col-sm-2"><center>
-            <a href="/@<%= User.find(Post.find(@post).user_id).username %>"><img class="profilePic" style="width:100px;height:100px" src="<%= User.find(Post.find(@post).user_id).avatar.url(:small) %>"></a>
+            <a href="/@<%= User.find(Post.find(@post).user_id).username %>"><img class="profilePic raised rounded" style="width:100px;height:100px;margin-bottom:20px;" src="<%= User.find(Post.find(@post).user_id).avatar.url(:small) %>"></a>
             <a href="/@<%= User.find(Post.find(@post).user_id).username %>" style="color:#1ac9c9"><p style="font-weight:500;font-size:20px;"><%= User.find(Post.find(@post).user_id).display_name %></p><p style="font-weight:320;font-size:14px;">@<%= User.find(Post.find(@post).user_id).username %></p></a>
         </center>
         </div>
         <div class="col-sm-9">
             <p style="font-weight:500;font-size:20px;padding:20px;"><%= Post.find(@post).content %></p>
             <% @arr.each do |hashtag| %>
-    <a href="/search/posts/<%= hashtag.tr("#", "") %>"><span class="btn btn-primary"><%= hashtag %></span></a>
+    <a href="/search/posts/<%= hashtag.tr("#", "") %>"><span class="tag"><%= hashtag %></span></a>
 <% end %>
         </div>
         <div class="col-sm-1">
@@ -40,21 +41,21 @@
               </div>
 </div>
 
-<div class="panel panel-default post-panel">
-    <center><h1 style="font-weight:310; letter-spacing:2px;margin-top:10px;">COMMENTS (<%= Comment.where(post_id: @p.id).count %>)</h1></center>
+<div class="post-container">
+    <center><h1 style="font-weight:310; letter-spacing:2px;margin-top:10px;">COMMENTS <span class="tag" style="border-radius: 20px;font-size: .6em;bottom: 5px;"><%= Comment.where(post_id: @p.id).count %></span></h1></center>
 </div>
 
 <%= render '/comments/form' %>
 
 <% @comments.each do |comment| %>
-    <div class="panel panel-default post-panel">
+    <div class="post-container" style="padding:10px;">
           <div class="panel-body row">
               <div class='col-sm-2'>
-                  <center><a href="/@<%=current_user.username%>"><img src="<%= comment.user.avatar.url(:thumb) %>" height="50px" width="50px" style="border-radius:50%;border:2px solid #1ac9c9"></img></a></center>
+                  <center><a href="/@<%=current_user.username%>"><img src="<%= comment.user.avatar.url(:thumb) %>" class="rounded" ></img></a></center>
               </div>
               <div class="col-sm-7">
-                  <a style="color:#1ac9c9" href="/@<%= comment.user.username %>" class='post-title'><strong><%= comment.user.display_name %></strong>  &nbsp;<span style="font-size:10px">@<%= comment.user.username %></span></a>
-                  <a href="/post/<%= @p.id %>"><p class='post-content wrapword'><%= comment.content %></p></a>
+                  <a style="color:#1ac9c9" href="/@<%= comment.user.username %>" class='post-title'><strong><%= comment.user.display_name %></strong>  &nbsp;<span style="font-size:10px" class="tag">@<%= comment.user.username %></span></a>
+                  <p class="post-content wrapword"><%= comment.content %></p>
               </div>
                <div class="col-sm-3">
                   <p class="post-date"><%= distance_of_time_in_words(comment.created_at,Time.now) %> ago</p>
@@ -66,6 +67,7 @@
         </div>
         
 <% end %>
+</div>
 
 
 

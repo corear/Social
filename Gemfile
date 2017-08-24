@@ -9,7 +9,11 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+# ----------------------------------- #
+# MUST USE 'pg' GEM FOR HEROKU, BUT 'sqlite3' FOR DEVELOPMENT
+gem 'sqlite3'
+#gem 'pg'
+# ----------------------------------- #
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
