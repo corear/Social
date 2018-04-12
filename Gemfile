@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby "2.3.0"
 
 gem 'paperclip', '~> 5.1'
+gem 'paperclip-cloudinary'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Devise for user authentication
 gem 'devise'

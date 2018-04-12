@@ -25,7 +25,7 @@
         <li style="margin-bottom:20px"><a href="/home">Home</a></li>
         <!-- <li><a href="/groups"><span class="glyphicon glyphicon-user"></span>&nbsp; Groups</a></li> -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img alt="Brand" src="<%= current_user.avatar.url(:thumb) %>" style="width:48px;border-radius:50%;margin-top:-12px"></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img alt="Brand" src="<%= current_user.avatar.url(:medium) %>" style="width:48px;height:48px;border-radius:50%;margin-top:-12px"></a>
           <ul class="dropdown-menu">
         <li><a href="/all_posts">All Posts</a></li>
             <li><a href="/@<%= current_user.username %>">Profile</a></li>

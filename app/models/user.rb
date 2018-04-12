@@ -20,8 +20,13 @@ class User < ActiveRecord::Base
     has_many :comments, dependent: :destroy
     
     
-    has_attached_file :avatar, styles: { medium: "256x256#", thumb: "50x50#", small: "100x100#" }, default_url: "/blank.jpg"
-    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+    has_attached_file :avatar,
+  :storage => :cloudinary,
+  :path => ':id/:style/:filename',
+  :default_url => "/blank.jpg",
+  :styles => { medium: "256x256#", thumb: "50x50#"}
+  
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   
     def follow(other)
       active_relationships.create(followed_id: other.id)

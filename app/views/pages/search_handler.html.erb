@@ -1,3 +1,17 @@
+<style>
+    body {
+        background:url("/bg5.jpg") no-repeat center center fixed;
+        
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+<%= render '/layouts/nav_user' %>
+<div class="container">
+
 <center>
     <div class="row">
 <div class="panel panel-default post-panel col-sm-12">
@@ -63,6 +77,8 @@
                <%= render "/components/post" %>
                <% end %>
                <% end %>
+               
+               </div>
 
 <script>
     document.title = 'Search for "<%= @query %>" | Unafire'
