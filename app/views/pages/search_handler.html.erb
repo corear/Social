@@ -10,7 +10,7 @@
 </style>
 
 <%= render '/layouts/nav_user' %>
-<div class="container">
+<div class="container" style="padding:20px">
 
 <center>
     <div class="row">
@@ -41,7 +41,7 @@
                <div class="row">
                    <div class="panel panel-default post-panel col-sm-12" style="height:100px;">
                    <div class="col-sm-3">
-                   <center><a href="/@<%= @u.username %>"><img src="<%= @u.avatar.url(:small) %>" style="width:80px;height:80px;border-radius:50%;margin-top:10px;margin-left:10px;"/></a></center>
+                   <center><a href="/@<%= @u.username %>"><img src="<%= @u.avatar.url(:medium) %>" style="width:80px;height:80px;border-radius:50%;margin-top:10px;margin-left:10px;"/></a></center>
                    </div>
                        
                         <div class="col-sm-5" style="margin-top:5px;">
@@ -50,24 +50,6 @@
                        <a href="/@<%= @u.username %>" style="font-size:14px;color:#1ac9c9">@<%= @u.username %></a>
                        </center>
                        </div>
-                        <div class="col-sm-4" style="margin-top:10px;">
-                            <center>
-                       <a href="/@<%= @u.username %>" style="font-size:90%;color:#000;opacity:0.7;"><%= pluralize(@u.followers.count, "follower") %></a>
-                        <% if current_user.id != @u.id %>  
-                                    <% if !current_user.following?(@u) %>
-                                        <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
-                                            <div><%= hidden_field_tag :followed_id, @u.id %></div>
-                                            <%= f.submit "FOLLOW", class: "btn btn-primary profile-btn-sm" %>
-                                        <% end %>
-                                    <% else %>
-                                        <%= form_for(current_user.active_relationships.find_by(followed_id: @u.id),
-                                            html: { method: :delete }) do |f| %>
-                                            <%= f.submit "UNFOLLOW", class: "btn btn-secondary profile-btn-sm" %>
-                                        <% end %>
-                                    <% end %>
-                       <% end %>
-                       </center>
-                  </div>
                   </div>
                   </div>
                <% end %>

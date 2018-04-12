@@ -54,7 +54,9 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
+    ul.dropdown-menu > li > a{
+        color:white !important;
+    }
 }
 
 /* Extra Small Devices, Phones */ 
@@ -509,7 +511,7 @@ input:active, input:focus{
     padding-top: 2em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 425px) {
     .container-fluid{
         padding-left: 3em;
     padding-right: 3em;
@@ -521,6 +523,8 @@ input:active, input:focus{
 body{
     text-align:center;
 }
+
+
 }
 
 button:active, button:focus{
@@ -552,4 +556,8 @@ button:active, button:focus{
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
     background:none;
+}
+
+.panel-body{
+    padding:25px;
 }

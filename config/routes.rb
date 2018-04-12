@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/home' => 'pages#home'
 
   get '/@:id' => 'pages#profile'
+  
+  get '/@:id/:type' => 'pages#list'
 
   get '/groups' => 'pages#groups'
 

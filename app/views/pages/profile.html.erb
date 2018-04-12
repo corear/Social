@@ -7,18 +7,22 @@
          <t4 style="color:rgba(255,255,255,0.8)" class="raisedText">@<%= @username %></t4>
         </div>
         <div style="margin-top:-150px;">
+            <a href="/@<%= @username %>/followers">
              <div style="display:inline-block;margin-left:25px;margin-right:25px;">
                 <t1 style="color: white" class="raisedText"><%= number_with_delimiter(User.find_by_username(@username).followers.count, :delimiter => ',') %></t1><br>
                 <t4 style="color:white" class="raisedText">Followers</t4>
             </div>
+            </a>
             <div style="display:inline-block;margin-left:25px;margin-right:25px;">
                 <t1 style="color: white" class="raisedText"><%= number_with_delimiter(User.find_by_username(@username).posts.count, :delimiter => ',') %></t1><br>
                 <t4 style="color:white" class="raisedText">Posts</t4>
             </div>
-            <div style="display:inline-block;margin-left:25px;margin-right:25px;margin-bottom:80px;">
-                <t1 style="color: white" class="raisedText"><%= number_with_delimiter(User.find_by_username(@username).posts.count, :delimiter => ',') %></t1><br>
+            <a href="/@<%= @username %>/following">
+                <div style="display:inline-block;margin-left:25px;margin-right:25px;margin-bottom:80px;">
+                <t1 style="color: white" class="raisedText"><%= number_with_delimiter(User.find_by_username(@username).following.count, :delimiter => ',') %></t1><br>
                 <t4 style="color:white" class="raisedText">Following</t4>
             </div>
+            </a>
         </div>
          
          

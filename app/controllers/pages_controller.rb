@@ -27,14 +27,36 @@ class PagesController < ApplicationController
   
   end
   
+  def list
+    if (User.find_by_username(params[:id]))
+    @username = params[:id]
+    else
+    redirect_to root_path, :alert=> "User #{params[:id]} not found!"
+    end
+    
+    @hot = nil
+    
+    if params[:type] == "followers" then
+      @hot = User.find_by_username(params[:id]).followers
+    elsif params[:type] == "following" then
+      @hot = User.find_by_username(params[:id]).following
+    end
+
+    
+    @posts = Post.all.where('user_id = ?', User.find_by_username(params[:id]).id)
+    @newPost = Post.new
+    @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
+  
+  end
+  
   def search_handler
     @query = params[:id]
     @type = params[:id1]
     if @type == 'users'
-      @users = User.where('username LIKE ?', "%#{@query}%").sort_by { |u| -u.followers.count }.take(50)
+      @users = User.where('lower(username) LIKE ?', "%#{@query.downcase}%").sort_by { |u| -u.followers.count }.take(50)
     end
     if @type == 'posts'
-      @posts = Post.where('content LIKE ?', "%#{@query}%").order("created_at DESC").take(50)
+      @posts = Post.where('lower(content) LIKE ?', "%#{@query.downcase}%").order("created_at DESC").take(50)
     end
   end
   
