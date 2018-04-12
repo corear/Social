@@ -1,9 +1,10 @@
 <div class="post-links">
                       <% if @p.post_type == "Prayer"  %>
-                      <span><a class="pray-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;">&nbsp;🙏</span><span class="action-count">3543</span></a></span>
+                      <%= link_to "&nbsp;&nbsp;&nbsp;🙏 &nbsp;<span class='action-count'>#{@p.get_upvotes.size}</span>".html_safe, like_post_path(@p), :confirm => "Are you sure?", :method => :put, :class =>"pray-button", :style => "color:#000; margin-top:10px;" %>
+                      
                       <span><a class="pray-button" href="/post/<%= @p.id %>"><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count"><%= Comment.where(post_id: @p.id).count %></span></a></span>
                       <% elsif @p.post_type == "Praise"  %>
-                      <span><a class="praise-button" href=""><span style="padding:7px;padding-left:10px;padding-right:10px;">&nbsp;🙌</span><span class="action-count-praise">3543</span></a></span>
+                      <%= link_to "&nbsp;&nbsp;&nbsp;🙌 &nbsp;<span class='action-count-praise'>#{@p.get_upvotes.size}</span>".html_safe, like_post_path(@p), :confirm => "Are you sure?", :method => :put, :class =>"praise-button", :style => "color:#000; margin-top:10px;" %>
                       <span><a class="praise-button" href="/post/<%= @p.id %>"><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count-praise"><%= Comment.where(post_id: @p.id).count %></span></a></span>
                       <% else %>
                       <span><a class="update-button" href="/post/<%= @p.id %>"><span style="padding:7px;padding-left:10px;padding-right:10px;"><span class="glyphicon glyphicon-comment"></span></span><span class="action-count-update"><%= Comment.where(post_id: @p.id).count %></span></a></span>

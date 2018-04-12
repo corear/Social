@@ -247,6 +247,7 @@ input:-webkit-autofill {
 .post-title{
     text-align:left;
     margin-bottom:20px;
+    font-size:2rem;
 }
 
 .post-content{
@@ -254,6 +255,8 @@ input:-webkit-autofill {
     padding-top:10px;
     color:#000;
     line-height:25px;
+    font-size:1.5rem;
+    margin:20px 0;
 }
 
 .post-links{
@@ -503,6 +506,9 @@ input:active, input:focus{
 }
 .post-btn{
     font-size:50%;
+}
+body{
+    text-align:center;
 }
 }
 

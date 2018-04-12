@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Define Root URL
   root 'pages#index'
   resources :posts do
+    member do
+      put 'like', to: 'posts#upvote'
+    end
     resources :comments
   end
   

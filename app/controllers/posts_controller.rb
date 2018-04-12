@@ -15,7 +15,7 @@ class PostsController < ApplicationController
         @post.user_id = current_user.id
         respond_to do |f|
             if (@post.save)
-                f.html { redirect_to "/@#{current_user.username}", notice: "Post created!" }
+                f.html { redirect_to "/@#{current_user.username}"}
             else
                 f.html { redirect_to "/@#{current_user.username}", alert: "Error: Post not saved. Most likely, you had more than 500 characters." }
             end
@@ -32,6 +32,10 @@ class PostsController < ApplicationController
     redirect_to '/home', :alert => "Your post has been deleted."
     end
     
+    def upvote
+        Post.find(params[:id]).upvote_by current_user
+        redirect_to :back
+    end
    
   
     private

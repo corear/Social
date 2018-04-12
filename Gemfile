@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby "2.3.0"
 
 gem 'paperclip', '~> 5.1'
-gem 'acts_as_votable', '~> 0.10.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Devise for user authentication
 gem 'devise'
@@ -11,8 +10,8 @@ gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 # ----------------------------------- #
 # MUST USE 'pg' GEM FOR HEROKU, BUT 'sqlite3' FOR DEVELOPMENT
-gem 'sqlite3'
-#gem 'pg'
+#gem 'sqlite3'
+gem 'pg', '~> 0.21.0'
 # ----------------------------------- #
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
@@ -32,6 +31,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'acts_as_votable', '~> 0.11.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
