@@ -1,22 +1,25 @@
+<style>
+    body {
+        background:url("/bg5.jpg") no-repeat center center fixed;
+        
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+<%= render '/layouts/nav_user' %>
+
 <div class="container">
-    <div class="row post-container" style="overflow:visible;margin-top:40px;">
+    <div class="row post-container" style="overflow:visible;margin-top:40px;background:none">
         <div class="col-sm-3">
         </div>
         <div class="col-sm-6" >
             <center>
                 <a href="/@<%= current_user.username %>"><img src="<%= current_user.avatar.url(:medium) %>" style="max-width:100px;margin-top:-40px;background-color:white" class="raised rounded"/></a><br>
-                    <t1><%= current_user.display_name %></t1><br>
-                <a href="/@<%= current_user.username %>"> <t4 class="tag" style="position:relative;top:5px;left:7px;">@ <%= current_user.username %></t4></a>
-                <div style="margin:10px;margin-top:20px">
-                     <div style="display:inline-block;margin-left:25px;margin-right:25px;">
-                        <t1 style="color: #1ac9c9" class="raisedText"><%= number_with_delimiter(current_user.followers.count, :delimiter => ',') %></t1><br>
-                        <t4 class="raisedText">Followers</t4>
-                     </div>
-                     <div style="display:inline-block;margin-left:25px;margin-right:25px;">
-                        <t1 style="color: #1ac9c9" class="raisedText"><%= number_with_delimiter(current_user.posts.count, :delimiter => ',') %></t1><br>
-                        <t4 class="raisedText">Posts</t4>
-                     </div>
-                </div>
+                    <t1 style="text-shadow:0px 1px 5px #3f9c9c;-webkit-text-shadow:0px 1px 5px #3f9c9c;color:white;top:15px;position:relative"><%= current_user.display_name %></t1><br>
+                <a href="/@<%= current_user.username %>"> <t4 class="tag" style="position:relative;top:30px;left:7px;color:#1ac9c9;background-color:white;font-style:0.9rem">@<%= current_user.username %></t4></a>
           </center>
         </div>
         <div class="col-sm-3">
@@ -27,8 +30,8 @@
     </div>
     
     
-    <div class="col-sm-12">
-               <%= render "/components/top_users" %>
+    <div class="col-sm-12" style="margin-top:100px">
+             <!--  <%= render "/components/top_users" %> -->
                <%= render "/components/post_form" %>
         
          <div style="margin-top:20px;">

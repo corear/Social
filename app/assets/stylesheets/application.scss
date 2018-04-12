@@ -14,15 +14,67 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+
+}
+
 
 body {
     background-color: rgba(212, 216, 212, 0.25);
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif
+    font-family: 'Titillium Web', sans-serif
 }
 
 .turbolinks-progress-bar{
-    background-color:#1ac9c9;
+    background-color:#fff;
 }
 
 t1{
@@ -37,14 +89,12 @@ t2{
 
 t3{
     font-weight:300;
-    font-family:"Helvetica Neue";
     font-size: 1.55em;
 }
 
 t4{
     font-weight:300;
     font-size: 1.25em;
-    font-family:"Helvetica Neue";
 }
 
 a:hover{
@@ -53,12 +103,32 @@ a:hover{
 }
 
 .navbar {
-    background-color: white;
+    background: none;
+    border:none;
+    padding:20px;
+    color:white;
 }
 
 .form-control{
-    border-radius:20px;
+    border-radius:0;
     min-width:250px;
+    border:none;
+    border-bottom:3px solid white;
+    color:white;
+    font-size:1em;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+    -webkit-transition:all 0.3s ease;
+    transition:all 0.3s ease;
+    background:none;
+}
+
+.form-control:focus, .form-control:active{
+    -webkit-box-shadow:none;
+    box-shadow:none;
+    border:none;
+    outline:none;
+    border-bottom:none;
 }
 
 .btn-primary{
@@ -278,11 +348,12 @@ white-space: normal;
     border: none;
     background-color: #1ac9c9;
     color: #fff;
-    padding: 20px;
-    letter-spacing:1px;
+    padding: 0;
+    letter-spacing:2px;
     font-weight:400;
     width: 100%;
     margin:0;
+    font-size:2rem;
 }
 
 .action-count{
@@ -346,11 +417,11 @@ white-space: normal;
 }
 
 .top-img{
-    background:linear-gradient(         rgba(111, 227, 245, 0.7),         rgba(30, 88, 85, 0.7)         ), url(/bg1.jpg);
+    background:linear-gradient(         rgba(111, 227, 245, 0.7),         rgba(30, 88, 85, 0.7)         ), url(/bg5.jpg);
     background-repeat: no-repeat;
-    background-size:2000px auto;
+    background-size:100% auto;
     width:100%;
-    margin-top:-80px;
+    margin-top:-170px;
 }
 
 .raised{
@@ -381,10 +452,87 @@ white-space: normal;
     background-color: #1ac9c9;
     color: white;
     padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 50px;
     position: relative;
     bottom: 2px;
     margin-right:10px;
+}
+
+input:active, input:focus{
+    outline:none;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-size:1.5em;
+    font-weight:800;
+    transition:all 0.3s ease;
+    color:white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    margin-top:-5px;
+    color:white;
+}
+
+.navbar-default .navbar-brand{
+    color:white;
+    font-size:1.7em;
+    font-weight:900;
+    border: 2px solid white;
+    line-height: .6em;
+    border-radius: 5px;
+}
+
+.navbar-default .navbar-brand:hover{
+ color:white;   
+}
+
+.container-fluid{
+        padding-left: 7em;
+    padding-right: 7em;
+    padding-top: 2em;
+}
+
+@media (max-width: 768px) {
+    .container-fluid{
+        padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 1em;
+}
+.post-btn{
+    font-size:50%;
+}
+}
+
+button:active, button:focus{
+    outline:none;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+    background-color:white;
+}
+
+.navbar-default .navbar-toggle{
+    border:none;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:active, .navbar-default .navbar-toggle:focus{
+    background:none;
+}
+
+.navbar-collapse{
+    box-shadow:none;
+    border:none;
+}
+
+.navbar-form{
+    border:none;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+    background:none;
 }

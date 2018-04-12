@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default" style="z-index:999;">
-  <div class="container-fluid container">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -8,35 +8,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/home">
-        <img alt="Unafire" src="/Icon80.png" style="width:25px;height:25px;">
-      </a>
+      <a class="navbar-brand" href="/home">Unafire</a>
+      <button style="background:none;border:none;font-size: 2rem;line-height: 3rem;margin: 10px;" onClick="if (document.getElementById('searchForm').style.marginTop=='0px') { document.getElementById('searchForm').style.marginTop='-200px' } else { document.getElementById('searchForm').style.marginTop='0px' }"><span class="glyphicon glyphicon-search" style=""></span></button>
     </div>
- <form class="navbar-form navbar-left" onKeyPress="return checkSubmit(event)">
+ <form class="navbar-form navbar-left" style="transition:all 0.3s ease;" onKeyPress="return checkSubmit(event)">
         <div class="form-group">
-          <input type="text" style="padding-right:-40px;" class="form-control" id="searchForm" placeholder="Search..."><span class="glyphicon glyphicon-search" style="left:-30px;"></span></input>
+          <input type="text" class="form-control" id="searchForm" style="margin-top:-200px"></input>
         </div>
       </form>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
       <ul class="nav navbar-nav navbar-right">
-          <li class='dropdown'>
-              <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px;padding:0px;padding-top:10px;margin-right:10px;"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-bell"></span>&nbsp; <span id = 'notifBadge' class="badge">0</span></button></a>
-          <ul class="dropdown-menu">
-            <li><a href="/@<%= current_user.username %>">Profile</a></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to('Settings', edit_user_registration_path) %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
-          </ul>
-          </li>
         
         
-        <li><a href="/home"><span class="glyphicon glyphicon-home"></span>&nbsp; Home</a></li>
-        <li><a href="/groups"><span class="glyphicon glyphicon-user"></span>&nbsp; Groups</a></li>
+        <li style="margin-bottom:20px"><a href="/home">Home</a></li>
+        <!-- <li><a href="/groups"><span class="glyphicon glyphicon-user"></span>&nbsp; Groups</a></li> -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img alt="Brand" src="<%= current_user.avatar.url(:thumb) %>" style="width:20px;height:20px;border-radius:50%"> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img alt="Brand" src="<%= current_user.avatar.url(:thumb) %>" style="width:48px;border-radius:50%;margin-top:-12px"></a>
           <ul class="dropdown-menu">
         <li><a href="/all_posts">All Posts</a></li>
             <li><a href="/@<%= current_user.username %>">Profile</a></li>
