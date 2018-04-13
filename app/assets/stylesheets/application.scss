@@ -187,7 +187,7 @@ a:hover{
     font-weight: 700;
     color: white;
     letter-spacing: 1px;
-    z-index:1000;
+    z-index:5000;
 }
 
 .alert{
@@ -198,7 +198,7 @@ a:hover{
     font-weight: 700;
     color: white;
     letter-spacing: 1px;
-    z-index:1000;
+    z-index:5000;
 }
 
 #notice-wrapper{
@@ -206,7 +206,7 @@ a:hover{
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 4999;
     background: rgba(135,216,211,0.85)
 }
 
@@ -215,7 +215,7 @@ a:hover{
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 4999;
     background: rgba(199,91,91,0.85)
 }
 
