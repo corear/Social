@@ -19,7 +19,7 @@
                   <center><a href="/@<%= User.find(@p.user_id).username %>"><img src="<%= User.find(@p.user_id).avatar.url(:medium) %>" height="70px" width="70px" class="rounded"></img></a></center>
               </div>
               <div class="col-sm-7">
-                  <a style="color:#1ac9c9" href="/@<%= User.find(@p.user_id).username %>" class='post-title'><strong><%= User.find(@p.user_id).display_name %></strong>  &nbsp;<span style="font-size:10px;bottom:5px;" class="tag">@<%= User.find(@p.user_id).username %></span></a>
+                  <a style="color:<%= current_user.hex %>" href="/@<%= User.find(@p.user_id).username %>" class='post-title'><strong><%= User.find(@p.user_id).display_name %></strong>  &nbsp;<span style="font-size:10px;bottom:5px;background-color:<%= current_user.hex %>" class="tag">@<%= User.find(@p.user_id).username %></span></a>
                      <% @con = simple_format(@p.content) %>
                   <a href="/post/<%= @p.id %>" class='post-content'><%= @con %></a>
               </div>

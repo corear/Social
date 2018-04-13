@@ -1,6 +1,24 @@
 <style>
-    body {
-        background:url("/bg5.jpg") no-repeat center center fixed;
+    .btn-primary{
+  background-color:<%= current_user.hex %>;
+}
+.btn-primary:hover{
+  background-color:<%= current_user.hex %>;
+}
+.btn-secondary{
+  border:1px solid <%= current_user.hex %>;
+  color:<%= current_user.hex %>;
+}
+.btn-secondary:hover{
+    color:<%= current_user.hex %>;
+}
+
+ body {
+        background: 
+        linear-gradient(
+        <%= current_user.hex %>4d,
+        <%= current_user.hex %>4d
+        ), url("/<%= current_user.bg %>.jpg") no-repeat center center fixed;
         
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -25,5 +43,5 @@
 </div>
 
 <script>
-    document.title="All <%= number_with_delimiter(Post.all.count, :delimiter => ',') %> Posts | Unafire"
+    document.title="All <%= number_with_delimiter(@posts.count, :delimiter => ',') %> Posts | Unafire"
 </script>

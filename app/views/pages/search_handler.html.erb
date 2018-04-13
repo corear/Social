@@ -1,12 +1,29 @@
 <style>
     body {
-        background:url("/bg5.jpg") no-repeat center center fixed;
-        
+background: 
+        linear-gradient(
+        <%= current_user.hex %>4d,
+        <%= current_user.hex %>4d
+        ), url("/<%= current_user.bg %>.jpg") no-repeat center center fixed;        
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
     }
+    
+    .btn-primary{
+  background-color:<%= current_user.hex %>;
+}
+.btn-primary:hover{
+  background-color:<%= current_user.hex %>;
+}
+.btn-secondary{
+  border:1px solid <%= current_user.hex %>;
+  color:<%= current_user.hex %>;
+}
+.btn-secondary:hover{
+    color:<%= current_user.hex %>;
+}
 </style>
 
 <%= render '/layouts/nav_user' %>
@@ -47,7 +64,7 @@
                         <div class="col-sm-5" style="margin-top:5px;">
                             <center>
                        <a href="/@<%= @u.username %>"><h1 style="font-size:18px;color:#000"><%= @u.display_name %></h1></a>
-                       <a href="/@<%= @u.username %>" style="font-size:14px;color:#1ac9c9">@<%= @u.username %></a>
+                       <a href="/@<%= @u.username %>" style="font-size:14px;color:<%= current_user.hex %>">@<%= @u.username %></a>
                        </center>
                        </div>
                   </div>

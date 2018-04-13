@@ -15,9 +15,11 @@ class PostsController < ApplicationController
         @post.user_id = current_user.id
         respond_to do |f|
             if (@post.save)
-              #  if @post.post_type == "Announcement" then
-               #     UserMailer.announcement(@post.content,@post.id).deliver
-                #end
+                if @post.post_type == "Announcement" then
+                    for @u in User.all do
+                        UserMailer.announcement(@u,@post.content,@post.id).deliver
+                    end
+                end
                 f.html { redirect_to "/@#{current_user.username}"}
             else
                 f.html { redirect_to "/@#{current_user.username}", alert: "Error: Post not saved. Most likely, you had more than 500 characters." }

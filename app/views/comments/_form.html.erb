@@ -5,7 +5,7 @@
     <%= f.text_area :content, autofocus: true, :class => "noOutline", :style => "width:98%;height:60px;border:none;padding:10px 30px;padding-bottom:0px;resize:none;font-size:2rem", :placeholder => "Drop a comment..." %>
     </div>
      <div class="col-xs-2" style="padding:0;">
-  <%= f.submit "POST", :class => "post-btn", :style => "height:70px;font-size:1.45rem;padding-right:5px" %>
+  <%= f.submit "POST", :class => "post-btn", :style => "height:70px;font-size:1.45rem;padding-right:5px;background-color:#{current_user.hex}" %>
   </div>
   </div>
   </div>

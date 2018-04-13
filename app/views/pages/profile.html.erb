@@ -1,7 +1,22 @@
 <style>
+
+.btn-primary{
+  background-color:<%= current_user.hex %>;
+}
+.btn-primary:hover{
+  background-color:<%= current_user.hex %>;
+}
+.btn-secondary{
+  border:1px solid <%= current_user.hex %>;
+  color:<%= current_user.hex %>;
+}
+.btn-secondary:hover{
+    color:<%= current_user.hex %>;
+}
+
     textarea:focus, textarea:active{
         outline:none;
-        border-bottom:4px solid #16c9ca !important;
+        border-bottom:4px solid <%= current_user.hex %> !important;
     }
     
     @keyframes bouncing-loader {
@@ -67,7 +82,7 @@ div.halfraised.col-md-8{
 
 <%= render '/layouts/nav_user' %>
 
-<div style="text-align: center" class="top-img jumbotron">
+<div class="top-img jumbotron" style="text-align:center; background: linear-gradient(<%= current_user.hex %>4d,<%= current_user.hex %>4d), url('/<%= current_user.bg %>.jpg') no-repeat center center fixed; width:100%; margin-top:-170px;">
         <div style="margin-top:200px;margin-bottom:200px;">
         <img class="raised rounded"src="<%= User.find_by_username(@username).avatar.url(:medium) %>" style="max-width:180px;z-index:6;float:top;margin-top:-30px;background-color:white"><br><br>
         <t1 style="color:white" class="raisedText"><%= User.find_by_username(@username).display_name %></t1><br>
@@ -148,7 +163,7 @@ div.halfraised.col-md-8{
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Send an email to <%= User.find_by_username(@username).display_name %>:</h4>
-        <input id = "subj" placeholder="Subject" type="text" style="padding: 15px 0 0 5px;border: none;font-size: 2rem;letter-spacing: 1px; color: #16c9ca;" />
+        <input id = "subj" placeholder="Subject" type="text" style="width:98%;padding: 15px 0 0 5px;border: none;font-size: 2rem;letter-spacing: 1px; color: <%= current_user.hex %>;" />
         
 <!-- <%= link_to "Send", :controller => "pages", :action => "send_custom", :user => "#{User.find_by_username(@username).id}", :subject => "YOLO", :message => "MESSAGE" %> -->
 </div>

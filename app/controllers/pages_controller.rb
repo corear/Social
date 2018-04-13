@@ -74,7 +74,11 @@ class PagesController < ApplicationController
   # back-end code for pages/prayers
   def posts
      @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
-     @posts = Post.all
+     if params[:type] then
+       @posts = Post.all.where('post_type = ?', params[:type].capitalize)
+     else
+       @posts = Post.all
+     end
   end
   
   def postpage
