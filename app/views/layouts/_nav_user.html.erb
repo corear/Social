@@ -9,9 +9,9 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/home">Unafire</a>
-      <button style="background:none;border:none;font-size: 2rem;line-height: 3rem;margin: 10px;" onClick="if (document.getElementById('searchForm').style.marginTop=='0px') { document.getElementById('searchForm').style.marginTop='-200px' } else { document.getElementById('searchForm').style.marginTop='0px'; document.getElementById('searchForm').focus() }"><span class="glyphicon glyphicon-search" style=""></span></button>
     </div>
  <form class="navbar-form navbar-left" style="transition:all 0.3s ease;" onKeyPress="return checkSubmit(event)">
+      <button type="button" style="background:none;border:none;font-size: 2rem;line-height: 3rem;margin: 2px;" onClick="if (document.getElementById('searchForm').style.marginTop=='-10px') { document.getElementById('searchForm').style.marginTop='-200px' } else { document.getElementById('searchForm').style.marginTop='-10px'; document.getElementById('searchForm').focus() }"><span class="glyphicon glyphicon-search" style=""></span></button>
         <div class="form-group">
           <input type="text" class="form-control" id="searchForm" style="margin-top:-200px;font-size:2rem"></input>
         </div>
