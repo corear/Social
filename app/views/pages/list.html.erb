@@ -1,6 +1,6 @@
 <%= render '/layouts/nav_user' %>
 
-<div style="text-align: center" class="top-img jumbotron">
+<div style="text-align: center" class="top-img jumbotron" style="text-align:center; background: linear-gradient(<%= User.find_by_username(@username).hex %>4d,<%= User.find_by_username(@username).hex %>4d), url('/<%= User.find_by_username(@username).bg %>.jpg') no-repeat center center fixed; width:100%; margin-top:-170px;">
         <div style="margin-top:200px;margin-bottom:200px;">
         <img class="raised rounded"src="<%= User.find_by_username(@username).avatar.url(:medium) %>" style="max-width:180px;z-index:6;float:top;margin-top:-30px;background-color:white"><br><br>
         <t1 style="color:white" class="raisedText"><%= User.find_by_username(@username).display_name %></t1><br>

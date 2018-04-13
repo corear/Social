@@ -171,7 +171,7 @@ div.halfraised.col-md-8{
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Send an email to <%= User.find_by_username(@username).display_name %>:</h4>
-        <input id = "subj" placeholder="Subject" type="text" style="width:98%;padding: 15px 0 0 5px;border: none;font-size: 2rem;letter-spacing: 1px; color: <%= current_user.hex %>;" />
+        <input id = "subj" placeholder="Subject" type="text" style="width:98%;padding: 15px 0 0 5px;border: none;font-size: 2rem;letter-spacing: 1px; color: <%= User.find_by_username(@username).hex %>;" />
         
 <!-- <%= link_to "Send", :controller => "pages", :action => "send_custom", :user => "#{User.find_by_username(@username).id}", :subject => "YOLO", :message => "MESSAGE" %> -->
 </div>
