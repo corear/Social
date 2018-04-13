@@ -11,6 +11,11 @@ class PagesController < ApplicationController
      @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
   end
   
+  def send_custom
+    UserMailer.send_custom(params[:user],current_user.email,params[:subject],params[:message]).deliver
+    redirect_to "/home", :notice => "The email has been sent."
+  end
+  
   
 
   # back-end code for pages/profile

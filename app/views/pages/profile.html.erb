@@ -1,3 +1,69 @@
+<style>
+    textarea:focus, textarea:active{
+        outline:none;
+        border-bottom:4px solid #16c9ca !important;
+    }
+    
+    @keyframes bouncing-loader {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.1;
+    transform: translateY(-1rem);
+  }
+}
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
+  width:100%;
+  height:100%;
+  position:fixed;
+  background:rgba(0,0,0,0.8);
+  z-index:1100;
+  visibility:hidden;
+}
+.bouncing-loader > div {
+  width: 2rem;
+  height: 2rem;
+  margin: 3rem 0.2rem;
+  background: #fff;
+  border-radius: 50%;
+  z-index:1101;
+  margin-top:5%;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+div.halfraised.col-md-8{
+  margin-top: 150px;margin-bottom: 150px;
+}
+
+@media (max-width:768px){
+  .div_base{
+        padding-left:0;
+        padding-right:0;
+    }
+    div.halfraised.col-md-8{
+      margin-top:-40px;
+      margin-bottom:20px;
+    }
+}
+</style>
+
+<div class="bouncing-loader" id="bouncing">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+
 <%= render '/layouts/nav_user' %>
 
 <div style="text-align: center" class="top-img jumbotron">
@@ -30,6 +96,7 @@
 
 <div class="container">
    <center>
+       
         <% if current_user.id != User.find_by_username(@username).id %>
                <%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
             <% end %>
@@ -37,12 +104,15 @@
          <% if @username == current_user.username %>
               <a href="/users/edit" class="btn btn-primary profile-btn" >EDIT PROFILE</a>
           <% end %></center>
+          <% if @username != current_user.username %>
+          <button class="btn btn-secondary profile-btn" style="margin-top:0px;margin-bottom:20px" data-toggle="modal" data-target="#myModal">MESSAGE</button>
+          <% end %>
    </center>
 <div class="row" style="margin:20px;margin-bottom:40px">
     <div class="col-xs-12">
         <center>
             <t1>About Me</t1><br><br>
-            <t3 style="color:#777;letter-spacing:.6px;width:500px;line-height:32px;"><% if User.find_by_username(@username).description.length > 0 then %><%= User.find_by_username(@username).description %><% else %>This user has not written anything about themselves... Apparently they like to keep an air of mystery about them. 🤔<% end %></t3>
+            <t3 style="color:#777;letter-spacing:.6px;width:500px;line-height:32px;"><% if !User.find_by_username(@username).description || User.find_by_username(@username).description.length <= 0 then %>This user has not written anything about themselves... Apparently they like to keep an air of mystery about them. 🤔<% else %><%= User.find_by_username(@username).description %><% end %></t3>
         </center>
         </div>
 </div>
@@ -70,7 +140,43 @@
     </div>
 </div>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top:100px">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Send an email to <%= User.find_by_username(@username).display_name %>:</h4>
+        <input id = "subj" placeholder="Subject" type="text" style="padding: 15px 0 0 5px;border: none;font-size: 2rem;letter-spacing: 1px; color: #16c9ca;" />
+        
+<!-- <%= link_to "Send", :controller => "pages", :action => "send_custom", :user => "#{User.find_by_username(@username).id}", :subject => "YOLO", :message => "MESSAGE" %> -->
+</div>
+      <div class="modal-body">
+          <textarea id = "mess" style="
+    width:  100%;
+    border: none;
+    resize:  vertical;
+    height: 100px;
+    background-color: #f5f5f5;
+    border-radius:  4px;
+    letter-spacing:  0.5px;
+    padding: 10px;
+    font-size: 1.7rem;
+"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-primary" onClick="runFunc()">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script>
     document.title = "@<%= @username %> | Unafire"
     
+    function runFunc(){
+        document.getElementById('bouncing').style.visibility = 'visible';
+        window.location = "/send_custom?message=" + document.getElementById("mess").value.replace(/(?:\r\n|\r|\n)/g, '%0A') + "&subject=" + document.getElementById("subj").value + "&user=<%= User.find_by_username(@username).id %>"
+    }
 </script>

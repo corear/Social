@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
   
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   
+  after_create :welcome_send
+  
+  def welcome_send
+    UserMailer.signup_confirmation(self).deliver
+  end
+  
     def follow(other)
       active_relationships.create(followed_id: other.id)
     end
@@ -39,5 +45,9 @@ class User < ActiveRecord::Base
     def following?(other)
       following.include?(other)
     end
+    
+    def password_required?
+    false
+  end
     
 end

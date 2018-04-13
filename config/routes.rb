@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   
   get '/search/:id1/:id' => 'pages#search_handler'
   
+  
+  get :send_custom, to: 'pages#send_custom', as: :send_custom
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
