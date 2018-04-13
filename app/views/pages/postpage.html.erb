@@ -24,6 +24,10 @@
                       <p class='post-type' style="background-color: rgba(199,91,91,0.85)">PRAYER</p>
                       <% elsif Post.find(@post).post_type == "Praise"  %>
                       <p class='post-type' style="background-color:#1ac9c9;">PRAISE</p>
+                      <% elsif Post.find(@post).post_type == "Transport"  %>
+                      <p class='post-type' style="background-color:#4dc751;">TRANSPORT</p>
+                      <% elsif Post.find(@post).post_type == "Announcement"  %>
+                      <p class='post-type' style="background-color:#f95246;">ANNOUNCEMENT</p>
                       <% end %>
                     
                 </div>

@@ -1,10 +1,15 @@
-    <div class="post-container">
+    <a href="/post/<%= @p.id %>">
+        <div class="post-container">
             <div class="row">
                 <div class='col-sm-12'>
                     <% if @p.post_type == "Prayer" %>
                       <p class='post-type' style="background-color: rgba(199,91,91,0.85)">PRAYER</p>
                       <% elsif @p.post_type == "Praise"  %>
                       <p class='post-type' style="background-color:#1ac9c9;">PRAISE</p>
+                      <% elsif @p.post_type == "Announcement"  %>
+                      <p class='post-type' style="background-color:#f95246;">ANNOUNCEMENT</p>
+                      <% elsif @p.post_type == "Transport"  %>
+                      <p class='post-type' style="background-color:#4dc751;">TRANSPORT</p>
                       <% end %>
                     
                 </div>
@@ -22,7 +27,7 @@
                   <p class="post-date"><%= distance_of_time_in_words(@p.created_at,Time.now) %> ago</p>
               </div>
               </div>
-              <div class="row" style="padding:10px;padding-top:0;margin-bottom:20px;top:0">
+              <div class="row" style="padding-bottom:10px;padding-top:0;top:0">
               <div class="col-sm-2"></div>
               <div class="col-sm-10">
                  <%= render '/components/post_links' %>
@@ -31,3 +36,4 @@
             
           </div>
         </div>
+         </a>

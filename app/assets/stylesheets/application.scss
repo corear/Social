@@ -255,16 +255,15 @@ input:-webkit-autofill {
 .post-content{
     text-align:left;
     color:#000;
-    margin:20px 0;
+    margin:0px 0;
 }
 
 .post-content > p{
     padding-top:10px;
     line-height:25px;
     font-size:1.5rem;
-    padding-top:10px;
     color:#000;
-    margin:20px 0;
+    margin:0px 0;
 }
 
 .post-content:hover{
@@ -277,7 +276,7 @@ input:-webkit-autofill {
 
 .post-date{
     opacity: 0.7;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-align: center;
     padding-right: 15px;
     font-weight: 1000;
@@ -351,6 +350,36 @@ white-space: normal;
     margin-right:20px;
 }
 
+.transport-button{
+    background:transparent;
+    padding:7px;
+    padding-left:0px;
+    padding-right:0px;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:2px;
+    border-radius:5px;
+    border: 1px solid #4dc751;
+    color: #4dc751;
+    overflow:hidden;
+    margin-right:20px;
+}
+
+.announcement-button{
+    background:transparent;
+    padding:7px;
+    padding-left:0px;
+    padding-right:0px;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:2px;
+    border-radius:5px;
+    border: 1px solid #f95246;
+    color: #f95246;
+    overflow:hidden;
+    margin-right:20px;
+}
+
 .praise-button:hover{
     color:#1db8b8;
     border: 1px solid #1db8b8;
@@ -388,6 +417,23 @@ white-space: normal;
     padding-left:10px;
     padding-right:10px;
 }
+
+.action-count-transport{
+    background-color: #4dc751;
+    color:#fff;
+    padding:7px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.action-count-announcement{
+    background-color: #f95246;
+    color:#fff;
+    padding:7px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
 .action-count-update{
     background-color: #ccc;
     color:#fff;

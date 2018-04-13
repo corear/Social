@@ -12,6 +12,12 @@ class UserMailer < ActionMailer::Base
     mail(:to => "#{user.display_name} <#{user.email}>", :subject => "Welcome to Unafire!")
   end
   
+  def announcement(con,i)
+    @con = con
+    @id = i
+      mail(:to => "#{User.all.email}", :subject => "Alert: New Announcement!")
+  end
+  
   def send_custom(user,from,subject,msg)
     @user = User.find(user)
     @msg = msg
