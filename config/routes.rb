@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
+  
+  devise_scope :user do
+    get "/signin" => "devise/sessions#new" # custom path to login/sign_in
+    get "/register" => "devise/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
+    get '/secure/password_update' => "devise/passwords#edit"
+  end
+  
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users do
     member do

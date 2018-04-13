@@ -14,6 +14,10 @@ background:
     .post > p{
         font-weight:500;font-size:2rem;padding:20px;line-height:4rem;
     }
+    
+    .col-sm-7 > a > .tag{
+    background-color: <%= current_user.hex %> !important;
+}
 </style>
 
 <%= render '/layouts/nav_user' %>
@@ -80,12 +84,12 @@ background:
               </div>
               <div class="col-sm-7">
                   <a style="color:<%= current_user.hex %>" href="/@<%= comment.user.username %>" class='post-title'><strong><%= comment.user.display_name %></strong>  &nbsp;<span style="font-size:10px" class="tag">@<%= comment.user.username %></span></a>
-                  <p class="post-content wrapword"><%= comment.content %></p>
+                  <p class="post-content wrapword" style="padding-bottom:20px"><%= comment.content %></p>
               </div>
                <div class="col-sm-3">
-                  <p class="post-date"><%= distance_of_time_in_words(comment.created_at,Time.now) %> ago</p>
+                  <p class="post-date" style="padding-right:0;"><%= distance_of_time_in_words(comment.created_at,Time.now) %> ago</p>
                   <% if current_user == comment.user %>
-                  <%= link_to "", [comment.post, comment], method: :delete, :class =>"glyphicon glyphicon-trash", :style => "color: white;background: #b74544;width: 50px;height: 50px;margin: 10px;padding: 17px;border-radius: 50%;" %>
+                  <%= link_to "", [comment.post, comment], method: :delete, :class =>"glyphicon glyphicon-trash", :style => "color: white;background: #b74544;width: 50px;height: 50px;margin: 10px auto; display:block; padding: 17px;border-radius: 50%;" %>
                   <% end %>
               </div>
               </div>

@@ -6,13 +6,14 @@ class PagesController < ApplicationController
   
   # back-end code for pages/home
   def home
+    if !current_user then redirect_to "/signin", :alert => "You are not signed in!" end
      @posts = Post.all.where('post_type != ?', 'Announcement')
      @featured = Post.all.where('post_type = ?', 'Announcement').where('created_at > ?', 1.week.ago).take(1)
      @newPost = Post.new
-     @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
   end
   
   def send_custom
+    if !current_user then redirect_to "/signin", :alert => "You are not signed in!" end
     UserMailer.send_custom(params[:user],current_user.email,params[:subject],params[:message]).deliver
     redirect_to "/home", :notice => "The email has been sent."
   end
@@ -21,6 +22,7 @@ class PagesController < ApplicationController
 
   # back-end code for pages/profile
   def profile
+    if !current_user then redirect_to "/signin", :alert => "You are not signed in!" end
     if (User.find_by_username(params[:id]))
     @username = params[:id]
     else
@@ -29,11 +31,11 @@ class PagesController < ApplicationController
     
     @posts = Post.all.where('user_id = ?', User.find_by_username(params[:id]).id)
     @newPost = Post.new
-     @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
   
   end
   
   def list
+    if !current_user then redirect_to "/signin", :alert => "You are not signed in!" end
     if (User.find_by_username(params[:id]))
     @username = params[:id]
     else
@@ -51,11 +53,11 @@ class PagesController < ApplicationController
     
     @posts = Post.all.where('user_id = ?', User.find_by_username(params[:id]).id)
     @newPost = Post.new
-    @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
   
   end
   
   def search_handler
+    if !current_user then redirect_to "/signin", :alert => "You are not signed in!" end
     @query = params[:id]
     @type = params[:id1]
     if @type == 'users'
@@ -73,7 +75,7 @@ class PagesController < ApplicationController
 
   # back-end code for pages/prayers
   def posts
-     @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
+    if !current_user then redirect_to "/signin", :alert => "You are not signed in!" end
      if params[:type] then
        @posts = Post.all.where('post_type = ?', params[:type].capitalize)
      else
@@ -82,6 +84,7 @@ class PagesController < ApplicationController
   end
   
   def postpage
+    if !current_user then redirect_to "/signin", :alert => "You are not signed in!" end
     if (Post.find(params[:id]))
     @post = params[:id]
     @p = Post.find(params[:id])
