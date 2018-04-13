@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   
   # back-end code for pages/home
   def home
-     @posts = Post.all.where('post_type != ?', "Announcement")
-     @featured = Post.all.where('post_type = ?', "Announcement").where('created_at > ?', 1.week.ago).take(1)
+     @posts = Post.all.where('post_type != ?', 'Announcement')
+     @featured = Post.all.where('post_type = ?', 'Announcement').where('created_at > ?', 1.week.ago).take(1)
      @newPost = Post.new
      @users = User.all.where('id != ?', current_user.id).sort_by { |u| -u.followers.count }.take(100).sample(3)
   end
