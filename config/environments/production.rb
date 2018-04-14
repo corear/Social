@@ -88,10 +88,10 @@ Rails.application.configure do
   :domain               => "herokuapp.com",
   :authentication       => "plain",
   :enable_starttls_auto => true,
-  :user_name            => 'unafireapp@gmail.com',
+  :user_name            => 'icchubapp@gmail.com',
   :password             => ENV["EMAIL_PASSWORD"],
   }
   
-  config.action_mailer.default_url_options = {host: "www.unafire.herokuapp.com"}
+  config.action_mailer.default_url_options = {host: "www.icchub.herokuapp.com"}
   
 end
